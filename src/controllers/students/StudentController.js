@@ -1,9 +1,9 @@
-const AddStudent = require('../../application/use_cases/AddStudent');
-const GetAllStudents = require('../../application/use_cases/GetAllStudents');
-const GetStudent = require('../../application/use_cases/GetStudent');
-const AddEnrollment = require('../../application/use_cases/AddEnrollment');
+import AddStudent from '../../application/use_cases/AddStudent';
+import GetAllStudents from '../../application/use_cases/GetAllStudents';
+import GetStudent from '../../application/use_cases/GetStudent';
+import AddEnrollment from '../../application/use_cases/AddEnrollment';
 
-module.exports = (dependecies) => {
+export default (dependecies) => {
 
     const { studentRepository } = dependecies.DatabaseService;
     const { CrmServices } = dependecies;

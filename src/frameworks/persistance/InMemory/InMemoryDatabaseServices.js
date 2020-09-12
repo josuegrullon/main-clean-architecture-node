@@ -1,8 +1,8 @@
-const DatabaseServices = require('../../../application/contracts/DatabaseServices');
-const InMemoryStudentRepository = require('./InMemoryStudentRepository');
-const Student = require('../../../entities/Student');
+import DatabaseServices from '../../../application/contracts/DatabaseServices';
+import InMemoryStudentRepository from './InMemoryStudentRepository';
+import Student from '../../../entities/Student';
 
-module.exports = class InMemoryDatabaseServices extends DatabaseServices {
+export default class InMemoryDatabaseServices extends DatabaseServices {
     constructor() {
         super();
         this.studentRepository = new InMemoryStudentRepository();

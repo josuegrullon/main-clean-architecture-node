@@ -1,5 +1,5 @@
-const appRoot = require('app-root-path');
-const winston = require('winston');
+import appRoot from 'app-root-path';
+import { createLogger, transports as _transports } from 'winston';
 
 
 const options = {
@@ -21,10 +21,10 @@ const options = {
 };
 
 
-const logger = winston.createLogger({
+const logger = createLogger({
     transports: [
-        new winston.transports.File(options.file),
-        new winston.transports.Console(options.console)
+        new _transports.File(options.file),
+        new _transports.Console(options.console)
     ],
     exitOnError: false, // do not exit on handled exceptions
 });
@@ -36,4 +36,4 @@ logger.stream = {
         logger.info(message);
     },
 };
-module.exports = logger;
+export default logger;

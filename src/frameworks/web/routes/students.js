@@ -1,10 +1,10 @@
-const express = require('express');
-const StudentController = require('../../../controllers/students/StudentController');
+import { Router } from 'express';
+import StudentController from '../../../controllers/students/StudentController';
 
 // address - api/students
 // load dependencies
 const studentsRouter = (dependencies) => {
-    const router = express.Router();
+    const router = Router();
 
     // load controller with dependencies
     const controller = StudentController(dependencies);
@@ -20,4 +20,4 @@ const studentsRouter = (dependencies) => {
 };
 
 
-module.exports = studentsRouter;
+export default studentsRouter;

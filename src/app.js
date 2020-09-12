@@ -1,18 +1,17 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const routes = require('./frameworks/web/routes');
-const projectDependencies = require('./config/projectDependencies');
-const ErrorHandler = require('./frameworks/common/ErrorHandler');
+import express from 'express';
+import { urlencoded, json } from 'body-parser';
+import routes from './frameworks/web/routes';
+import projectDependencies from './config/projectDependencies';
+import ErrorHandler from './frameworks/common/ErrorHandler';
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 // load app only if db is alive and kicking
 projectDependencies.DatabaseService.initDatabase().then(() => {
 
     // load middlewares
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(bodyParser.json());
+    app.use(urlencoded({ extended: true }));
+    app.use(json());
 
     // load routes
     app.use('/api', routes(projectDependencies));
